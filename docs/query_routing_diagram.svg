@@ -1,0 +1,41 @@
+<svg width="680" height="430" viewBox="0 0 680 430" xmlns="http://www.w3.org/2000/svg">
+<title>Query routing logic</title>
+<desc>Decision flow showing how each incoming question is routed: broad questions like summaries use the full transcript text, while specific questions use hybrid keyword and vector retrieval, and both paths converge on the LLM for the final timestamped answer.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+
+<rect x="265" y="40" width="150" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="340" y="62" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#2C2C2A">User question</text>
+
+<path d="M340 84 L340 110" fill="none" stroke="#5F5E5A" stroke-width="0.5"/>
+<path d="M340 110 L175 110 L175 140" fill="none" stroke="#5F5E5A" stroke-width="0.5" marker-end="url(#arrow)"/>
+<path d="M340 110 L505 110 L505 140" fill="none" stroke="#5F5E5A" stroke-width="0.5" marker-end="url(#arrow)"/>
+<text x="175" y="126" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#5F5E5A">broad</text>
+<text x="505" y="126" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#5F5E5A">specific</text>
+
+<rect x="80" y="140" width="190" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="175" y="160" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#085041">Broad question</text>
+<text x="175" y="178" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif" font-size="12" fill="#0F6E56">e.g. summarize</text>
+
+<rect x="410" y="140" width="190" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="505" y="160" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#3C3489">Specific question</text>
+<text x="505" y="178" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif" font-size="12" fill="#534AB7">e.g. "in 2017..."</text>
+
+<line x1="175" y1="196" x2="175" y2="240" stroke="#5F5E5A" stroke-width="0.5" marker-end="url(#arrow)"/>
+<line x1="505" y1="196" x2="505" y2="240" stroke="#5F5E5A" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+<rect x="80" y="240" width="190" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="175" y="260" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#085041">Send full text</text>
+<text x="175" y="278" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif" font-size="12" fill="#0F6E56">Whole transcript</text>
+
+<rect x="410" y="240" width="190" height="56" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+<text x="505" y="260" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#3C3489">Hybrid retrieve</text>
+<text x="505" y="278" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif" font-size="12" fill="#534AB7">Keyword + vector</text>
+
+<path d="M175 296 L175 320 L340 320 L340 340" fill="none" stroke="#5F5E5A" stroke-width="0.5"/>
+<path d="M505 296 L505 320 L340 320 L340 340" fill="none" stroke="#5F5E5A" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+<rect x="230" y="340" width="220" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="340" y="362" text-anchor="middle" dominant-baseline="central" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#2C2C2A">Groq generates answer</text>
+</svg>

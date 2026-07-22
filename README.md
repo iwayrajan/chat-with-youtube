@@ -78,14 +78,27 @@ From there:
 - `transcript_fetcher.py` — the 3-layer transcript fallback chain
 - `requirements.txt` — dependencies
 
-## Reusing the PDF tool's delivery pipeline
+## Full delivery toolkit
 
-Not built yet, but the plan for parity with `pdf-rag-chat`:
+Mirroring `pdf-rag-chat`'s structure, this repo also includes everything needed to
+package and sell this as a student project:
 
-- `student_config.json` + `scripts/generate_all.sh` — same config-driven
-  report/deck/viva-bank generation, once this app's structure has settled
-- `report_template/` and `presentation/` — adapt the existing generators'
-  chapter/slide content to describe transcript-based retrieval instead of
-  PDF-based retrieval (the architecture diagram, most of chapters 1-3 and 8,
-  and roughly half the viva question bank carry over almost unchanged)
-- `tracker/Student_Order_Tracker.xlsx` — same tracker, just a second product row
+- `docs/` — architecture and query-routing diagrams (SVG + PNG)
+- `report_template/` — generates a full 8-chapter Word report (`generate_report.js`)
+- `presentation/` — generates a 14-slide PowerPoint deck (`generate_deck.js`)
+- `viva_prep/viva_question_bank.md` — Q&A bank, cheat sheet, and a 2-minute pitch script
+- `tracker/` — order tracker spreadsheet (now spans both products via a Product column)
+- `scripts/generate_all.sh` — regenerates the report + deck and packages a delivery folder
+- `test_videos/sample_video_list.md` — how to pick demo videos for each transcript-fallback layer
+- `student_config.json` — the one file to edit per student; everything above reads from it
+
+To generate a delivery package for a new student:
+```bash
+# 1. Edit student_config.json with their details
+# 2. Run:
+bash scripts/generate_all.sh
+```
+This produces `deliverables/<student_name>/` with the report, deck, and viva bank
+ready to hand over (after you've swapped in real screenshots — see
+`report_template/README.md`).
+
